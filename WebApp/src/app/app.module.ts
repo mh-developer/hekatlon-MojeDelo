@@ -4,11 +4,22 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthComponent } from './auth';
+import { FormsModule } from '@angular/forms';
+
+import { AuthModule } from './auth';
+import { AuthComponent } from './auth/auth';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [AppComponent, AuthComponent],
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        // NgbModule,
+        BrowserAnimationsModule,
+        AuthModule,
+        FormsModule
+    ],
     providers: [],
     bootstrap: [AppComponent]
 })

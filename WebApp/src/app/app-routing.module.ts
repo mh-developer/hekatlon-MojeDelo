@@ -3,13 +3,31 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth/auth.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '', component: AuthComponent},
-  { path: 'job-application', loadChildren: () => import('./job-application/job-application.module').then(m => m.JobApplicationModule) }
+    {
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
+    },
+    {
+        path: 'login',
+        component: AuthComponent
+    },
+    {
+        path: 'job-application',
+        loadChildren: () =>
+            import('./job-application/job-application.module').then(
+                m => m.JobApplicationModule
+            )
+    },
+    {
+        path: 'admin',
+        redirectTo: '/job-application',
+        pathMatch: 'full'
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
