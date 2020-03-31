@@ -6,12 +6,24 @@ import { JobApplicationListComponent } from './job-application-list/job-applicat
 import { JobApplicationNotificationComponent } from './job-application-notification/job-application-notification.component';
 import { JobApplicationAddComponent } from './job-application-add/job-application-add.component';
 
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
-  declarations: [JobApplicationListComponent, JobApplicationNotificationComponent, JobApplicationAddComponent],
+  declarations: [
+    JobApplicationListComponent, 
+    JobApplicationNotificationComponent, 
+    JobApplicationAddComponent
+  ],
   imports: [
     CommonModule,
-    JobApplicationRoutingModule
+    JobApplicationRoutingModule,
+    MatCardModule
+  ],
+  exports: [
+    JobApplicationAddComponent,
+    JobApplicationListComponent,
+    JobApplicationNotificationComponent
   ]
 })
 export class JobApplicationModule { }
