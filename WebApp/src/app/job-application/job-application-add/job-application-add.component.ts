@@ -28,4 +28,8 @@ export class JobApplicationAddComponent implements OnInit {
             replaceUrl: true
         });
     }
+
+    public goToLogin(): void {
+        this._router.navigateByUrl('/login', { replaceUrl: true });
+    }
 }

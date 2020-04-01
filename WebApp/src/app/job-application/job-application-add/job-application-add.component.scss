@@ -18,14 +18,27 @@ body {
     background-color: #f5f5f5;
 }
 
+a {
+    color: white;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+textarea {
+    margin-bottom: 30px;
+    resize: none;
+}
+
 .form-width {
-    width: 400px;
+    width: 550px;
     margin: 0 auto;
 }
 
 .form-signin {
     width: 100%;
-    max-width: 330px;
+    max-width: 450px;
     padding: 15px;
     margin: 0 auto;
 }
@@ -41,14 +54,4 @@ body {
 }
 .form-signin .form-control:focus {
     z-index: 2;
-}
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
 }
