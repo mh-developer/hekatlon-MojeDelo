@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { AuthModule } from './auth';
+import { JobApplicationModule } from './job-application/job-application.module';
 import { AuthComponent } from './auth/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         NgbModule,
         BrowserAnimationsModule,
         AuthModule,
-        FormsModule
+        FormsModule,
+        JobApplicationModule
     ],
     providers: [],
     bootstrap: [AppComponent]
