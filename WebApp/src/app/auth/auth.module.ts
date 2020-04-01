@@ -14,31 +14,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [],
-    imports: [
-        CommonModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatDialogModule,
-        MatTableModule,
-        MatMenuModule,
-        MatIconModule,
-        MatProgressSpinnerModule,
-        FormsModule
-    ],
-    exports: [
-        CommonModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatDialogModule,
-        MatTableModule,
-        MatMenuModule,
-        MatIconModule,
-        MatProgressSpinnerModule,
-        FormsModule
-    ]
+    imports: [CommonModule, FormsModule],
+    exports: [CommonModule, FormsModule]
 })
 export class AuthModule {}

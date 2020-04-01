@@ -4,16 +4,28 @@ import { JobApplicationAddComponent } from './job-application-add/job-applicatio
 import { JobApplicationListComponent } from './job-application-list/job-application-list.component';
 import { JobApplicationNotificationComponent } from './job-application-notification/job-application-notification.component';
 
-
 const routes: Routes = [
-  { path: '', redirectTo: '/add', pathMatch: 'full' },
-  { path: 'new', component: JobApplicationAddComponent },
-  { path: 'applications', component: JobApplicationListComponent },
-  { path: 'notification', component: JobApplicationNotificationComponent }
+    {
+        path: '',
+        redirectTo: 'new',
+        pathMatch: 'full'
+    },
+    {
+        path: 'new',
+        component: JobApplicationAddComponent
+    },
+    {
+        path: 'applications',
+        component: JobApplicationListComponent
+    },
+    {
+        path: 'notification',
+        component: JobApplicationNotificationComponent
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
-export class JobApplicationRoutingModule { }
+export class JobApplicationRoutingModule {}

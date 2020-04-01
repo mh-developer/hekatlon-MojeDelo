@@ -1,1 +1,17 @@
-<p>job-application-notification works!</p>
+<div class="text-center pt-5">
+    <div class="bg-light form-width mt-5 p-5 rounded">
+        <span class="material-icons" style="font-size: 96px;">check</span>
+        <h3>VLOGA USPEŠNO ODDANA</h3>
+        <p>
+            Vaša vloga je bila oddana v preverjanje. Po pregledu Vas bodo naši
+            uslužbenci o rezultatu obvestili preko elektronske pošte, ki je
+            navedena v vašem uporabniškem imenu.
+        </p>
+        <a routerLink="../" class="btn btn-primary mt-4 w-100">Nova oddaja</a>
+    </div>
+    <div class="mt-3">
+        <a (click)="goToLogin()" class="btn btn-link">
+            Prijavi se kot administrator
+        </a>
+    </div>
+</div>

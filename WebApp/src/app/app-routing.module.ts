@@ -22,6 +22,11 @@ const routes: Routes = [
         path: 'admin',
         redirectTo: '/job-application',
         pathMatch: 'full'
+    },
+    {
+        path: '**',
+        redirectTo: '/login',
+        pathMatch: 'full'
     }
 ];
 
