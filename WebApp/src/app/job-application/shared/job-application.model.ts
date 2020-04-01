@@ -1,6 +1,7 @@
-export interface JobApplication {
-    Id: number;
-    FirstName: string;
-    LastName: string;
-    Description: string;
+export class JobApplication {
+    public Id?: number;
+    public FirstName?: string;
+    public LastName?: string;
+    public Address?: string;
+    public Description?: string;
 }
