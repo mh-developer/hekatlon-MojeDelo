@@ -20,7 +20,7 @@ const routes: Routes = [
     },
     {
         path: 'admin',
-        redirectTo: '/job-application',
+        redirectTo: '/job-application/applications',
         pathMatch: 'full'
     },
     {

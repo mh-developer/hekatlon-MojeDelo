@@ -1,1 +1,52 @@
-<p>job-application-list works!</p>
+<div class="pt-5">
+    <div class="bg-light container mt-5 p-5 rounded">
+        <h1 class="h1 text-uppercase font-weight-bold">Prejete vloge</h1>
+        <div>
+            <div class="jumbotron" *ngFor="let application of dataSource">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col">
+                                Ime:
+                                <p>
+                                    {{ application?.FirstName }}
+                                </p>
+                            </div>
+                            <div class="col">
+                                Priimek:
+                                <p>
+                                    {{ application?.LastName }}
+                                </p>
+                            </div>
+                            <div class="col">
+                                Naslov:
+                                <p>
+                                    {{ application?.Address }}
+                                </p>
+                            </div>
+                            <div class="w-100 my-4">
+                                <hr />
+                            </div>
+                            <div class="col">
+                                Oceni vlogo:
+                                <span
+                                    class="material-icons outline"
+                                    *ngFor="let c of [1, 2, 3, 4, 5]"
+                                >
+                                    grade
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        Opis:
+                        <p>
+                            {{ application?.Description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a routerLink="../" class="btn btn-primary mt-4 w-100">Nova oddaja</a>
+    </div>
+</div>

@@ -12,6 +12,7 @@ export class AuthService {
             return;
         }
 
-        this._localStoreService.saveItem('isAdmin', JSON.stringify(isAdmin));
+        this._localStoreService.saveItem('isAdmin', `${isAdmin}`);
+        console.log(this._localStoreService.getItem('isAdmin'));
     }
 }

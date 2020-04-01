@@ -1,5 +1,5 @@
 export class JobApplication {
-    public Id?: number;
+    public Id: Date;
     public FirstName?: string;
     public LastName?: string;
     public Address?: string;
