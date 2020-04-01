@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStoreService } from 'src/app/shared/services';
 import { JobApplication } from '../shared/job-application.model';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-job-application-add',
@@ -10,7 +11,10 @@ import { JobApplication } from '../shared/job-application.model';
 export class JobApplicationAddComponent implements OnInit {
     public jobApplication: JobApplication = new JobApplication();
 
-    constructor(private _localStoreService: LocalStoreService) {}
+    constructor(
+        private _localStoreService: LocalStoreService,
+        private _router: Router
+    ) {}
 
     ngOnInit(): void {}
 
@@ -20,6 +24,8 @@ export class JobApplicationAddComponent implements OnInit {
             date,
             JSON.stringify(this.jobApplication)
         );
-        console.log(this._localStoreService.getItem(date), this.jobApplication);
+        this._router.navigateByUrl('/job-application/notification', {
+            replaceUrl: true
+        });
     }
 }

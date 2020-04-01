@@ -4,4 +4,5 @@ export class JobApplication {
     public LastName?: string;
     public Address?: string;
     public Description?: string;
+    public Rating?: number;
 }
