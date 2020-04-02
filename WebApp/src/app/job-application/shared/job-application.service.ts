@@ -39,15 +39,14 @@ export class JobApplicationService {
         const items = this._localStoreService.getItem('jobApplications');
         if (items) {
             const applications: JobApplication[] = JSON.parse(items);
-            const update = {
-                ...applications.find(x => x.Id === jobApplication.Id),
-                ...jobApplication
-            };
+            const update = applications.map(x =>
+                x.Id === jobApplication.Id ? { ...x, ...jobApplication } : x
+            );
             this._localStoreService.saveItem(
                 'jobApplications',
-                JSON.stringify([update, ...applications])
+                JSON.stringify(update)
             );
-            return update;
+            return update.find(x => x.Id === jobApplication.Id);
         }
     }
 }
