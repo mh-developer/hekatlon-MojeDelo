@@ -7,12 +7,11 @@ import { Injectable } from '@angular/core';
 export class AuthService {
     constructor(private _localStoreService: LocalStoreService) {}
 
-    public Save(isAdmin: boolean): void {
-        if (isAdmin !== false) {
+    public Save(data): void {
+        if (!data) {
             return;
         }
 
-        this._localStoreService.saveItem('isAdmin', `${isAdmin}`);
-        console.log(this._localStoreService.getItem('isAdmin'));
+        this._localStoreService.saveItem('jeAdmin', JSON.stringify(data));
     }
 }

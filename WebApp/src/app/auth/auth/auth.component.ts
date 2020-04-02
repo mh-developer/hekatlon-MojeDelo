@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-auth',
@@ -8,23 +9,35 @@ import { AuthService } from '../shared';
     styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-    public username: string;
-    public password: string;
-    public showSpinner: boolean = false;
+    public loginForm: FormGroup;
+    public submitted: boolean = false;
 
-    constructor(private _router: Router, private _authService: AuthService) {}
+    constructor(
+        private _router: Router,
+        private _authService: AuthService,
+        private formBuilder: FormBuilder
+    ) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.loginForm = this.formBuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required]
+        });
+    }
 
-    login(): void {
-        this.showSpinner = true;
-        if (this.username !== '' && this.password !== '') {
-            this._authService.Save(true);
-            this.showSpinner = false;
+    get form() {
+        return this.loginForm.controls;
+    }
+
+    public login(): void {
+        this.submitted = true;
+        if (this.loginForm.valid) {
+            const validTo = new Date();
+            this._authService.Save({
+                jeAdmin: true,
+                validTo: validTo.setDate(validTo.getDate())
+            });
             this._router.navigateByUrl('/admin', { replaceUrl: true });
-        } else {
-            this.showSpinner = false;
-            console.log('Inputs not valid.');
         }
     }
 }
