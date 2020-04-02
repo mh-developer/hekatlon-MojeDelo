@@ -10,6 +10,8 @@ import { JobApplication } from '../shared/job-application.model';
 })
 export class JobApplicationListComponent implements OnInit {
     public dataSource: JobApplication[];
+    public page: number = 1;
+    public pageSize: number = 1;
 
     constructor(private _jobApplicationService: JobApplicationService) {}
 

@@ -6,6 +6,7 @@ import { JobApplicationRoutingModule } from './job-application-routing.module';
 import { JobApplicationListComponent } from './job-application-list/job-application-list.component';
 import { JobApplicationNotificationComponent } from './job-application-notification/job-application-notification.component';
 import { JobApplicationAddComponent } from './job-application-add/job-application-add.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,12 @@ import { JobApplicationAddComponent } from './job-application-add/job-applicatio
         JobApplicationNotificationComponent,
         JobApplicationAddComponent
     ],
-    imports: [CommonModule, FormsModule, JobApplicationRoutingModule],
+    imports: [
+        CommonModule,
+        FormsModule,
+        JobApplicationRoutingModule,
+        NgbModule
+    ],
     exports: [
         JobApplicationAddComponent,
         JobApplicationListComponent,

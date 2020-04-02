@@ -2,7 +2,15 @@
     <div class="bg-light container mt-5 p-5 rounded">
         <h1 class="h1 text-uppercase font-weight-bold">Prejete vloge</h1>
         <div>
-            <div class="jumbotron" *ngFor="let application of dataSource">
+            <div
+                class="jumbotron"
+                *ngFor="
+                    let application of dataSource
+                        | slice
+                            : (page - 1) * pageSize
+                            : (page - 1) * pageSize + pageSize
+                "
+            >
                 <div class="row">
                     <div class="col-6">
                         <div class="row">
@@ -46,6 +54,17 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
+            <ngb-pagination
+                class="d-flex justify-content-end"
+                [collectionSize]="dataSource.length"
+                [(page)]="page"
+                [pageSize]="pageSize"
+                [maxSize]="5"
+                [rotate]="true"
+                [boundaryLinks]="true"
+            ></ngb-pagination>
         </div>
         <a routerLink="../" class="btn btn-primary mt-4 w-100">Nova oddaja</a>
     </div>

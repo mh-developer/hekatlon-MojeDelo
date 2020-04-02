@@ -17,7 +17,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         BrowserModule,
         AppRoutingModule,
         NgbModule,
-        BrowserAnimationsModule,
         AuthModule,
         FormsModule,
         JobApplicationModule
