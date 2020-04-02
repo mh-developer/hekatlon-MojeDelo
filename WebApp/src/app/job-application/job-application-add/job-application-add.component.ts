@@ -39,7 +39,7 @@ export class JobApplicationAddComponent implements OnInit {
                 this.jobApplicationForm.value as JobApplication
             );
 
-            this._router.navigateByUrl('/job-application/notification', {
+            this._router.navigateByUrl('/notification', {
                 replaceUrl: true
             });
         }

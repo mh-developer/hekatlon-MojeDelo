@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth/auth.component';
+import { NoAuthGuard } from './core/guards/no-auth.guard';
 
 const routes: Routes = [
     {
         path: '',
-        component: AuthComponent
+        redirectTo: '/new',
+        pathMatch: 'full'
     },
     {
         path: 'login',
-        component: AuthComponent
+        component: AuthComponent,
+        canActivate: [NoAuthGuard]
     },
     {
-        path: 'job-application',
+        path: '',
         loadChildren: () =>
             import('./job-application/job-application.module').then(
                 m => m.JobApplicationModule
             )
-    },
-    {
-        path: 'admin',
-        redirectTo: '/job-application/applications',
-        pathMatch: 'full'
     },
     {
         path: '**',

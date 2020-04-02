@@ -1,3 +1,4 @@
+import { AuthGuard } from './../core/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { JobApplicationAddComponent } from './job-application-add/job-application-add.component';
@@ -6,17 +7,13 @@ import { JobApplicationNotificationComponent } from './job-application-notificat
 
 const routes: Routes = [
     {
-        path: '',
-        redirectTo: 'new',
-        pathMatch: 'full'
-    },
-    {
         path: 'new',
         component: JobApplicationAddComponent
     },
     {
-        path: 'applications',
-        component: JobApplicationListComponent
+        path: 'admin',
+        component: JobApplicationListComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'notification',

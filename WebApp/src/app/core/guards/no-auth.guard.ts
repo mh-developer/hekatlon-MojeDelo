@@ -6,11 +6,14 @@ import {
     UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/shared';
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthGuardGuard implements CanActivate {
+export class NoAuthGuard implements CanActivate {
+    constructor(private _authService: AuthService) {}
+
     canActivate(
         next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
@@ -19,6 +22,6 @@ export class AuthGuardGuard implements CanActivate {
         | Promise<boolean | UrlTree>
         | boolean
         | UrlTree {
-        return true;
+        return this._authService.IsValid();
     }
 }
