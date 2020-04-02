@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobApplication } from '../shared/job-application.model';
 import { Router } from '@angular/router';
 import { JobApplicationService } from '../shared/job-application.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-job-application-add',
@@ -9,21 +10,39 @@ import { JobApplicationService } from '../shared/job-application.service';
     styleUrls: ['./job-application-add.component.scss']
 })
 export class JobApplicationAddComponent implements OnInit {
-    public jobApplication: JobApplication = new JobApplication();
+    public jobApplicationForm: FormGroup;
+    public submitted: boolean = false;
 
     constructor(
         private _jobApplicationService: JobApplicationService,
-        private _router: Router
+        private _router: Router,
+        private formBuilder: FormBuilder
     ) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.jobApplicationForm = this.formBuilder.group({
+            FirstName: ['', Validators.required],
+            LastName: ['', Validators.required],
+            Address: ['', Validators.required],
+            Description: ['', Validators.required]
+        });
+    }
+
+    get form() {
+        return this.jobApplicationForm.controls;
+    }
 
     submit(): void {
-        this._jobApplicationService.Save(this.jobApplication);
+        this.submitted = true;
+        if (this.jobApplicationForm.valid) {
+            this._jobApplicationService.Save(
+                this.jobApplicationForm.value as JobApplication
+            );
 
-        this._router.navigateByUrl('/job-application/notification', {
-            replaceUrl: true
-        });
+            this._router.navigateByUrl('/job-application/notification', {
+                replaceUrl: true
+            });
+        }
     }
 
     public goToLogin(): void {

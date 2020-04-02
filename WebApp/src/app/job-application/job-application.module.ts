@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { JobApplicationRoutingModule } from './job-application-routing.module';
 import { JobApplicationListComponent } from './job-application-list/job-application-list.component';
@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     imports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         JobApplicationRoutingModule,
         NgbModule
     ],
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         JobApplicationAddComponent,
         JobApplicationListComponent,
         JobApplicationNotificationComponent,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class JobApplicationModule {}

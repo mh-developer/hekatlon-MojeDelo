@@ -1,53 +1,85 @@
 <div class="text-center pt-5">
-    <div class="bg-light form-width mt-5 p-5 rounded">
-        <form class="form-signin">
+    <div class="bg-light form-width p-5 rounded">
+        <form
+            [formGroup]="jobApplicationForm"
+            class="form-signin"
+            (ngSubmit)="submit()"
+        >
             <h1 class="h3 mb-3 font-weight-normal">ODDAJA VLOGE</h1>
             <p class="pb-3">
                 Izpolnite spodnja polja in oddajte vlogo, če se želite
                 potegovati za izbrano delovno mesto
             </p>
-            <label for="inputFirstName" class="sr-only">Ime</label>
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Ime"
-                [(ngModel)]="jobApplication.FirstName"
-                name="inputFirstName"
-                required
-                autofocus
-            />
-            <label for="inputLastName" class="sr-only">Priimek</label>
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Priimek"
-                [(ngModel)]="jobApplication.LastName"
-                name="inputLastName"
-                required
-            />
-            <label for="inputAddress" class="sr-only">Naslov</label>
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Naslov"
-                [(ngModel)]="jobApplication.Address"
-                name="inputAddress"
-                required
-            />
-            <label for="inputDescription" class="sr-only">Opis</label>
-            <textarea
-                class="form-control"
-                placeholder="Zakaj ste vi najbolj primerni za izbrano delo"
-                [(ngModel)]="jobApplication.Description"
-                name="inputDescription"
-                required
-                rows="5"
-            ></textarea>
-            <button
-                class="btn btn-lg btn-primary btn-block"
-                type="submit"
-                (click)="submit()"
-            >
+            <div class="form-group">
+                <label for="inputFirstName" class="sr-only">Ime</label>
+                <input
+                    type="text"
+                    id="inputFirstName"
+                    class="form-control"
+                    [ngClass]="{
+                        'is-invalid': submitted && form.FirstName.errors
+                    }"
+                    placeholder="Ime"
+                    formControlName="FirstName"
+                    required
+                    autofocus
+                />
+                <div class="invalid-feedback">
+                    Prosimo vnesite vaše ime.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputLastName" class="sr-only">Priimek</label>
+                <input
+                    type="text"
+                    id="inputLastName"
+                    class="form-control"
+                    [ngClass]="{
+                        'is-invalid': submitted && form.LastName.errors
+                    }"
+                    placeholder="Priimek"
+                    formControlName="LastName"
+                    required
+                />
+                <div class="invalid-feedback">
+                    Prosimo vnesite vaš priimek.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress" class="sr-only">Naslov</label>
+                <input
+                    type="text"
+                    id="inputAddress"
+                    class="form-control"
+                    [ngClass]="{
+                        'is-invalid': submitted && form.Address.errors
+                    }"
+                    placeholder="Naslov"
+                    formControlName="Address"
+                    required
+                />
+                <div class="invalid-feedback">
+                    Prosimo vnesite vaš naslov.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputDescription" class="sr-only">Opis</label>
+                <textarea
+                    id="inputDescription"
+                    class="form-control"
+                    [ngClass]="{
+                        'is-invalid': submitted && form.Description.errors
+                    }"
+                    placeholder="Zakaj ste vi najbolj primerni za izbrano delo"
+                    formControlName="Description"
+                    required
+                    rows="5"
+                ></textarea>
+                <div class="invalid-feedback">
+                    Prosimo vnesite vaš opis.
+                </div>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
                 ODDAJ
             </button>
         </form>
