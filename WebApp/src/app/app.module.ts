@@ -19,9 +19,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         AuthModule,
         FormsModule,
         ReactiveFormsModule,
-        JobApplicationModule
+        JobApplicationModule,
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

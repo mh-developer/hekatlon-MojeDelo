@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobApplicationService } from '../shared/job-application.service';
 import { JobApplication } from '../shared/job-application.model';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { ToastService } from 'src/app/shared/services';
 
 @Component({
     selector: 'app-job-application-list',
@@ -16,7 +17,8 @@ export class JobApplicationListComponent implements OnInit {
 
     constructor(
         private _jobApplicationService: JobApplicationService,
-        private config: NgbRatingConfig
+        private config: NgbRatingConfig,
+        public toastService: ToastService
     ) {}
 
     ngOnInit(): void {
@@ -26,5 +28,9 @@ export class JobApplicationListComponent implements OnInit {
 
     updateRating(application): void {
         this._jobApplicationService.Update(application);
+        this.toastService.show('Uspešno ste ocenili vlogo', {
+            header: 'Uspešna akcija',
+            classname: 'bg-success text-light',
+        });
     }
 }

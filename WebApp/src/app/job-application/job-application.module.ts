@@ -7,26 +7,28 @@ import { JobApplicationListComponent } from './job-application-list/job-applicat
 import { JobApplicationNotificationComponent } from './job-application-notification/job-application-notification.component';
 import { JobApplicationAddComponent } from './job-application-add/job-application-add.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations: [
         JobApplicationListComponent,
         JobApplicationNotificationComponent,
-        JobApplicationAddComponent
+        JobApplicationAddComponent,
     ],
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
         JobApplicationRoutingModule,
-        NgbModule
+        NgbModule,
+        SharedModule,
     ],
     exports: [
         JobApplicationAddComponent,
         JobApplicationListComponent,
         JobApplicationNotificationComponent,
         FormsModule,
-        ReactiveFormsModule
-    ]
+        ReactiveFormsModule,
+    ],
 })
 export class JobApplicationModule {}
