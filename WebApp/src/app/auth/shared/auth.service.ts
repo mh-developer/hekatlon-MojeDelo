@@ -1,9 +1,9 @@
-import { LocalStoreService } from './../../shared/services/local-store.service';
+import { LocalStoreService } from '../../shared/services';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class AuthService {
     constructor(
