@@ -37,12 +37,11 @@
                             </div>
                             <div class="col">
                                 Oceni vlogo:
-                                <span
-                                    class="material-icons outline"
-                                    *ngFor="let c of [1, 2, 3, 4, 5]"
-                                >
-                                    grade
-                                </span>
+                                <ngb-rating
+                                    [(ngModel)]="application.Rating"
+                                    [(rate)]="application.Rating"
+                                    (click)="updateRating(application)"
+                                ></ngb-rating>
                             </div>
                         </div>
                     </div>
