@@ -12,7 +12,9 @@ export class JobApplicationService {
         const items = this._localStoreService.getItem('jobApplications');
         if (items) {
             const applications: JobApplication[] = JSON.parse(items);
-            return applications;
+            return applications.sort((a, b) =>
+                b.Id.toString().localeCompare(a.Id.toString())
+            );
         }
         return [];
     }
