@@ -9,6 +9,7 @@ import { AuthModule } from './auth';
 import { JobApplicationModule } from './job-application/job-application.module';
 import { AuthComponent } from './auth/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TippyModule } from 'ng-tippy';
 
 @NgModule({
     declarations: [AppComponent, AuthComponent],
@@ -20,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         FormsModule,
         ReactiveFormsModule,
         JobApplicationModule,
+        TippyModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

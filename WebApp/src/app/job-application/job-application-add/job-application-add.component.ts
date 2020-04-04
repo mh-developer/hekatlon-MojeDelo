@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { JobApplication } from '../shared/job-application.model';
+import { JobApplication } from '../shared';
 import { Router } from '@angular/router';
-import { JobApplicationService } from '../shared/job-application.service';
+import { JobApplicationService } from '../shared';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-job-application-add',
     templateUrl: './job-application-add.component.html',
-    styleUrls: ['./job-application-add.component.scss']
+    styleUrls: ['./job-application-add.component.scss'],
 })
 export class JobApplicationAddComponent implements OnInit {
     public jobApplicationForm: FormGroup;
@@ -24,7 +24,7 @@ export class JobApplicationAddComponent implements OnInit {
             FirstName: ['', Validators.required],
             LastName: ['', Validators.required],
             Address: ['', Validators.required],
-            Description: ['', Validators.required]
+            Description: ['', Validators.required],
         });
     }
 
@@ -40,7 +40,7 @@ export class JobApplicationAddComponent implements OnInit {
             );
 
             this._router.navigateByUrl('/notification', {
-                replaceUrl: true
+                replaceUrl: true,
             });
         }
     }

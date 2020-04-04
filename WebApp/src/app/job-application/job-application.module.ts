@@ -2,18 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import * as fromJobApplication from '.';
 import { JobApplicationRoutingModule } from './job-application-routing.module';
-import { JobApplicationListComponent } from './job-application-list/job-application-list.component';
-import { JobApplicationNotificationComponent } from './job-application-notification/job-application-notification.component';
-import { JobApplicationAddComponent } from './job-application-add/job-application-add.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '../shared/shared.module';
+import { TippyModule } from 'ng-tippy';
 
 @NgModule({
     declarations: [
-        JobApplicationListComponent,
-        JobApplicationNotificationComponent,
-        JobApplicationAddComponent,
+        fromJobApplication.JobApplicationListComponent,
+        fromJobApplication.JobApplicationNotificationComponent,
+        fromJobApplication.JobApplicationAddComponent,
     ],
     imports: [
         CommonModule,
@@ -22,11 +21,12 @@ import { SharedModule } from '../shared/shared.module';
         JobApplicationRoutingModule,
         NgbModule,
         SharedModule,
+        TippyModule,
     ],
     exports: [
-        JobApplicationAddComponent,
-        JobApplicationListComponent,
-        JobApplicationNotificationComponent,
+        fromJobApplication.JobApplicationAddComponent,
+        fromJobApplication.JobApplicationListComponent,
+        fromJobApplication.JobApplicationNotificationComponent,
         FormsModule,
         ReactiveFormsModule,
     ],

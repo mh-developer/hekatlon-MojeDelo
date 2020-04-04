@@ -1,5 +1,24 @@
-<div class="pt-5">
-    <div class="bg-light container mt-5 p-5 rounded">
+<a
+    class="btn btn-primary topBarCreate text-white border-0 shadow-lg"
+    title="Odjavi se"
+    appTippy
+    (click)="logOut()"
+>
+    <i class="material-icons">power_settings_new</i>
+</a>
+<a
+    class="btn btn-primary topBarAdd text-white border-0 shadow-lg"
+    title="Oddajte novo vlogo"
+    appTippy
+    routerLink="/new"
+>
+    <i class="material-icons">
+        create
+    </i>
+</a>
+
+<div class="pt-sm-5">
+    <div class="bg-light container mt-sm-5 p-5 rounded">
         <h1 class="h1 text-uppercase font-weight-bold">Prejete vloge</h1>
         <div>
             <div
@@ -14,28 +33,28 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md">
                                 Ime:
                                 <p>
                                     {{ application?.FirstName }}
                                 </p>
                             </div>
-                            <div class="col">
+                            <div class="col-md">
                                 Priimek:
                                 <p>
                                     {{ application?.LastName }}
                                 </p>
                             </div>
-                            <div class="col">
+                            <div class="col-md">
                                 Naslov:
                                 <p>
                                     {{ application?.Address }}
                                 </p>
                             </div>
-                            <div class="w-100 my-4">
+                            <div class="w-100 my-sm-4">
                                 <hr />
                             </div>
-                            <div class="col">
+                            <div class="col-md">
                                 Oceni vlogo:
                                 <ngb-rating
                                     [(ngModel)]="application.Rating"
@@ -45,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6 mt-4 mt-md-0">
                         Opis:
                         <p>
                             {{ application?.Description }}
@@ -54,9 +73,18 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="row">
+            <div class="col">
+                <button
+                    *ngFor="let num of pages"
+                    class="btn border btn-light shadow-sm text-secondary p-1 m-1 rounded"
+                    (click)="selectPageSize(num)"
+                >
+                    {{ num }}
+                </button>
+            </div>
             <ngb-pagination
-                class="d-flex justify-content-end"
+                class="col d-sm-flex justify-content-sm-end mt-2 mt-sm-0"
                 [collectionSize]="dataSource.length"
                 [(page)]="page"
                 [pageSize]="pageSize"
@@ -65,7 +93,6 @@
                 [boundaryLinks]="true"
             ></ngb-pagination>
         </div>
-        <a routerLink="/new" class="btn btn-primary mt-4 w-100">Nova oddaja</a>
     </div>
 </div>
 

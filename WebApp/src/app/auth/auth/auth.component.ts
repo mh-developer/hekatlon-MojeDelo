@@ -6,7 +6,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 @Component({
     selector: 'app-auth',
     templateUrl: './auth.component.html',
-    styleUrls: ['./auth.component.scss']
+    styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
     public loginForm: FormGroup;
@@ -21,7 +21,7 @@ export class AuthComponent implements OnInit {
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
-            password: ['', Validators.required]
+            password: ['', Validators.required],
         });
     }
 
@@ -33,9 +33,9 @@ export class AuthComponent implements OnInit {
         this.submitted = true;
         if (this.loginForm.valid) {
             const validTo = new Date();
-            this._authService.Save({
+            this._authService.save({
                 jeAdmin: true,
-                validTo: validTo.setDate(validTo.getDate())
+                validTo: validTo.setDate(validTo.getDate()),
             });
             this._router.navigateByUrl('/admin', { replaceUrl: true });
         }

@@ -35,11 +35,16 @@ export class AuthService {
         return false;
     }
 
-    public Save(data): void {
+    public save(data): void {
         if (!data) {
             return;
         }
 
         this._localStoreService.saveItem('jeAdmin', JSON.stringify(data));
+    }
+
+    public logOut(): void {
+        this._localStoreService.removeItem('jeAdmin');
+        this._router.navigateByUrl('/login', { replaceUrl: true });
     }
 }
