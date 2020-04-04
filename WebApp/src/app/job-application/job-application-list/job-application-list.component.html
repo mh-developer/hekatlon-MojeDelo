@@ -20,6 +20,12 @@
 <div class="pt-sm-5">
     <div class="bg-light container mt-sm-5 p-5 rounded">
         <h1 class="h1 text-uppercase font-weight-bold">Prejete vloge</h1>
+        <div
+            *ngIf="dataSource.length == 0"
+            class="d-flex align-items-center justify-content-center jumbotron"
+        >
+            <h5>Oddana ni bila še nobena vloga</h5>
+        </div>
         <div>
             <div
                 class="jumbotron"
@@ -78,12 +84,14 @@
                 <button
                     *ngFor="let num of pages"
                     class="btn border btn-light shadow-sm text-secondary p-1 m-1 rounded"
+                    [class]="num === pageSize ? 'bg-primary text-light' : ''"
                     (click)="selectPageSize(num)"
                 >
                     {{ num }}
                 </button>
             </div>
             <ngb-pagination
+                *ngIf="dataSource.length > 0"
                 class="col d-sm-flex justify-content-sm-end mt-2 mt-sm-0"
                 [collectionSize]="dataSource.length"
                 [(page)]="page"

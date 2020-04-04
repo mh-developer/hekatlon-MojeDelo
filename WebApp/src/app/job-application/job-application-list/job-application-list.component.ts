@@ -14,7 +14,7 @@ export class JobApplicationListComponent implements OnInit, OnDestroy {
     public dataSource: JobApplication[];
     public pages: number[] = [1, 2, 5, 10, 20];
     public page: number = 1;
-    public pageSize: number = 1;
+    public pageSize: number = 5;
     public currentRate: number = 5;
 
     constructor(
@@ -31,7 +31,7 @@ export class JobApplicationListComponent implements OnInit, OnDestroy {
         this.pageSize = Number(
             this._localStoreService.getItem('pageSize')
                 ? this._localStoreService.getItem('pageSize')
-                : 1
+                : 5
         );
     }
 
