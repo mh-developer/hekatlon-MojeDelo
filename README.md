@@ -3,7 +3,7 @@
 Kazalo vsebine
 =================
 - [Predpogoji](#predpogoji)
-- [Inštalacija in pogajanje iz Visual Studio Code (opcijsko)](#inštalacija-in-poganjanje-iz-visual-studio-code)
+- [Inštalacija in poganjanje iz Visual Studio Code](#inštalacija-in-poganjanje-iz-visual-studio-code)
 - [Uporabljene tehnologije](#uporabljene-tehnologije)
 
 
