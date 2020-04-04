@@ -49,6 +49,7 @@ export class JobApplicationListComponent implements OnInit, OnDestroy {
 
     public selectPageSize(size: number): void {
         this.pageSize = size;
+        this._localStoreService.saveItem('pageSize', `${this.pageSize}`);
     }
 
     public logOut(): void {
